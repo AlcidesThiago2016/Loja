@@ -15,21 +15,26 @@ public class Carrinho {
         System.out.println("Produto"+ produto.getNome()+ " adicionado com sucesso!");
     }
 
-    public String removerProduto(String nome){
+    public void removerProduto(String nome){
         int codigo = -1;
         for (int i = 0; i < this.produtos.size(); i++){
             if(this.produtos.get(i).getNome().equals(nome)){
                 codigo = i;
+                produtos.remove(codigo);
                 break;
             }else {
                 continue;
             }
         }
         if(codigo == -1){
-            return null;
+            System.out.println("O produto não foi encontrado!");
         }else {
-            return "O produto "+nome+" foi removido do carrinho!";
+            System.out.println("O produto " + nome + " removido com sucesso!");
         }
+    }
+
+    public ArrayList<Produto> getProdutos(){
+        return produtos;
     }
 
 }
